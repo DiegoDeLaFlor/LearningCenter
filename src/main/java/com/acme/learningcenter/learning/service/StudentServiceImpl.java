@@ -3,6 +3,7 @@ package com.acme.learningcenter.learning.service;
 import com.acme.learningcenter.learning.domain.model.entity.Student;
 import com.acme.learningcenter.learning.domain.persistence.StudentRepository;
 import com.acme.learningcenter.learning.domain.service.StudentService;
+import com.acme.learningcenter.shared.exception.ResourceNotFoundException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -34,7 +35,8 @@ public class StudentServiceImpl implements StudentService {
     }
     @Override
     public Student getById(Long studentId) {
-        return null;
+        return studentRepository.findById(studentId)
+                .orElseThrow(()-> new ResourceNotFoundException(ENTITY, studentId));
     }
     @Override
     public Student create(Student student) {
