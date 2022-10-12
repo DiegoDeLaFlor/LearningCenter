@@ -15,8 +15,7 @@ import javax.validation.constraints.Size;
 @AllArgsConstructor
 @Entity
 @Table(name = "students")
-
-public class Student extends AuditModel{
+public class Student extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -31,5 +30,4 @@ public class Student extends AuditModel{
 
     @Size(max = 240)
     private String address;
-
 }

@@ -10,5 +10,4 @@ import java.util.List;
 public interface StudentRepository extends JpaRepository<Student, Long> {
     List<Student> findAllByAge(int age);
     Student findByName(String name);
-
 }
